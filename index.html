@@ -3,15 +3,15 @@
     <script>
       // just fill in the hacks array, display columns and rows will adapt automagically
       var hacks = [
-        // ["Vincent Debergue", "Générer doc depuis play controllers"],
       ["Aurélie Amet", "Gamification sur data sportive lié au compte bancaire"],
       ["Nizar Sehli", "Template projet Event Sourcing: Scala / Akka / Play / MongoDB"],
       ["Gaëtan Renaudeau", "Bot twitter Richard Stallman qui répond par “GNU/Linux” aux tweets qui mentionnent Linux"],
       ["Benjamin Martin", "Rating de film depuis rythme cardiaque sur montre"],
-      // ["Thibault Duplessis", "Borne d'arcade SFII sur écran cathodique"],
-      // ["Arnaud Wassmer", "Congé validé => créer entrée sur calendar"],
       ["Bernhard Huemer", "Implementation of scalable (eventually consistent) counters over unreliable networks"],
       ["Renaud Bressand", "Refonte du site zengularity.com"],
+      // ["Vincent Debergue", "Générer doc depuis play controllers"],
+      // ["Thibault Duplessis", "Borne d'arcade SFII sur écran cathodique"],
+      // ["Arnaud Wassmer", "Congé validé => créer entrée sur calendar"],
       // ["Étienne Vallette d’Osia", "Lists de bouquins à lire intégrée à Amazon"],
       // ["Étienne Vallette d’Osia", "Analytics côté serveur nginx+lua"],
       // ["Gwenaëlle Georget", "Microphone sans fil lançable"],
@@ -24,6 +24,7 @@
     <style>
       body {
         background: radial-gradient(ellipse at center, rgba(136,191,232,1) 0%,rgba(104,172,221,1) 100%);
+        background: #38B1D2;
         text-shadow: 1px 1px 0 #444;
         color: #eee;
         font-family: 'Slabo 27px', serif;
@@ -63,7 +64,7 @@
         margin-top: 1em;
       }
       #hacks .text {
-        font-size: 2em;
+        font-size: 1.5em;
       }
     </style>
   </head>
@@ -77,15 +78,16 @@
     <script>
       var colors = [
         ['GhostWhite', false],
-        ['DarkSlateGrey', true],
-        ['Azure', false],
-        ['HoneyDew', false],
-        ['DimGrey', true],
-        ['FloralWhite', false],
+        // ['DarkSlateGrey', true],
+        // ['Azure', false],
+        // ['HoneyDew', false],
+        ['#ebebeb', false],
+        // ['FloralWhite', false],
         //['Gainsboro', false],
-        ['SlateGrey', true]
+        // ['SlateGrey', true]
       ];
-      var nbPerRow = hacks.length > 9 ? 4 : 3;
+      // var nbPerRow = hacks.length > 9 ? 4 : 3;
+      var nbPerRow = 3;
       var $hacks = $('#hacks');
       var colorIt = 0;
       hacks.forEach(function(hack) {
