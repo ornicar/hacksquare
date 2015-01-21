@@ -1,0 +1,111 @@
+<html>
+  <head>
+    <script>
+      // just fill in the hacks array, display columns and rows will adapt automagically
+      var hacks = [
+        // ["Vincent Debergue", "Générer doc depuis play controllers"],
+      ["Aurélie Amet", "Gamification sur data sportive lié au compte bancaire"],
+      ["Nizar Sehli", "Template projet Event Sourcing: Scala / Akka / Play / MongoDB"],
+      ["Gaëtan Renaudeau", "Bot twitter Richard Stallman qui répond par “GNU/Linux” aux tweets qui mentionnent Linux"],
+      ["Benjamin Martin", "Rating de film depuis rythme cardiaque sur montre"],
+      // ["Thibault Duplessis", "Borne d'arcade SFII sur écran cathodique"],
+      // ["Arnaud Wassmer", "Congé validé => créer entrée sur calendar"],
+      ["Bernhard Huemer", "Implementation of scalable (eventually consistent) counters over unreliable networks"],
+      ["Renaud Bressand", "Refonte du site zengularity.com"],
+      // ["Étienne Vallette d’Osia", "Lists de bouquins à lire intégrée à Amazon"],
+      // ["Étienne Vallette d’Osia", "Analytics côté serveur nginx+lua"],
+      // ["Gwenaëlle Georget", "Microphone sans fil lançable"],
+      // ["Julien Richard-Foy", "Éviter redondance technique formulaire/controller/modèle ?"]
+      ];
+    </script>
+    <meta charset="UTF-8">
+    <link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <style>
+      body {
+        background: radial-gradient(ellipse at center, rgba(136,191,232,1) 0%,rgba(104,172,221,1) 100%);
+        text-shadow: 1px 1px 0 #444;
+        color: #eee;
+        font-family: 'Slabo 27px', serif;
+      }
+      #header {
+        width: 100%;
+        text-align: center;
+        font-size: 4em;
+        height: 30%;
+      }
+      #header h1 {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      #hacks {
+        width: 100%;
+      }
+      #hacks > div {
+        float: left;
+        text-align: center;
+      }
+      #hacks > div.light {
+        color: #333;
+        text-shadow: 1px 1px 0 #fff;
+      }
+      #hacks > div .inner {
+        padding: 5%;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      #hacks .author {
+        display: block;
+        font-style: italic;
+        font-size: 1.2em;
+        margin-top: 1em;
+      }
+      #hacks .text {
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <div id="header">
+      <h1>&#9734; HackDay: 30 Janvier 2015 &#9734;</h1>
+    </div>
+    <div id="hacks">
+    </div>
+    <script>
+      var colors = [
+        ['GhostWhite', false],
+        ['DarkSlateGrey', true],
+        ['Azure', false],
+        ['HoneyDew', false],
+        ['DimGrey', true],
+        ['FloralWhite', false],
+        //['Gainsboro', false],
+        ['SlateGrey', true]
+      ];
+      var nbPerRow = hacks.length > 9 ? 4 : 3;
+      var $hacks = $('#hacks');
+      var colorIt = 0;
+      hacks.forEach(function(hack) {
+        var author = hack[0];
+        var text = hack[1];
+        console.log(hack);
+        var color = colors[colorIt++ % colors.length];
+        $el = $('<div>')
+          .css({
+            background: color[0],
+            width: (100 / nbPerRow) + '%',
+            height: (70 / (Math.ceil(hacks.length / nbPerRow))) + '%'
+          })
+            .addClass(color[1] ? 'dark' : 'light')
+          .append(
+            $('<div class="inner">')
+              .append($('<span class="text"></span>').text(text))
+              .append($('<span class="author"></span>').text(author)));
+          $hacks.append($el);
+      });
+    </script>
+  </body>
+</html>
