@@ -3,7 +3,7 @@
     <script>
       // just fill in the hacks array, display columns and rows will adapt automagically
       var hacks = [
-      ["Aurélie Amet", "Gamification sur data sportive lié au compte bancaire"],
+        ["Aurélie Amet", "Gamification sur data sportive lié au compte bancaire"],
       ["Nizar Sehli", "Template projet Event Sourcing: Scala / Akka / Play / MongoDB"],
       ["Gaëtan Renaudeau", "Bot twitter Richard Stallman qui répond par “GNU/Linux” aux tweets qui mentionnent Linux"],
       ["Benjamin Martin", "Rating de film depuis rythme cardiaque sur montre"],
@@ -23,9 +23,9 @@
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <style>
       body {
-        background: radial-gradient(ellipse at center, rgba(136,191,232,1) 0%,rgba(104,172,221,1) 100%);
-        background: #38B1D2;
-        text-shadow: 1px 1px 0 #444;
+        background: url(http://www.comicbooked.com/wp-content/uploads/2014/10/cthulu.jpg);
+        background-size: cover;
+        height: 100%;
         color: #eee;
         font-family: 'Slabo 27px', serif;
       }
@@ -33,12 +33,14 @@
         width: 100%;
         text-align: center;
         font-size: 4em;
-        height: 30%;
+        height: 20%;
+        background: rgba(0, 0, 0, 0.7);
       }
       #header h1 {
         position: relative;
         top: 50%;
         transform: translateY(-50%);
+        text-shadow: 0 0 20px #fff;
       }
       #hacks {
         width: 100%;
@@ -48,11 +50,17 @@
         text-align: center;
       }
       #hacks > div.light {
-        color: #333;
-        text-shadow: 1px 1px 0 #fff;
+        color: #d0d0d0;
+        text-shadow: 1px 1px 0 #000;
+        background: rgba(40, 40, 40, 0.8);
+      }
+      #hacks > div.dark {
+        color: #d0d0d0;
+        text-shadow: 1px 1px 0 #000;
+        background: rgba(0, 0, 0, 0.7);
       }
       #hacks > div .inner {
-        padding: 5%;
+        padding: 10%;
         position: relative;
         top: 50%;
         transform: translateY(-50%);
@@ -64,7 +72,7 @@
         margin-top: 1em;
       }
       #hacks .text {
-        font-size: 1.5em;
+        font-size: 2em;
       }
     </style>
   </head>
@@ -76,32 +84,22 @@
     <div id="hacks">
     </div>
     <script>
-      var colors = [
-        ['GhostWhite', false],
-        // ['DarkSlateGrey', true],
-        // ['Azure', false],
-        // ['HoneyDew', false],
-        ['#ebebeb', false],
-        // ['FloralWhite', false],
-        //['Gainsboro', false],
-        // ['SlateGrey', true]
-      ];
+      var classes = ['dark', 'light'];
       // var nbPerRow = hacks.length > 9 ? 4 : 3;
       var nbPerRow = 3;
       var $hacks = $('#hacks');
-      var colorIt = 0;
+      var classIt = 0;
       hacks.forEach(function(hack) {
         var author = hack[0];
         var text = hack[1];
         console.log(hack);
-        var color = colors[colorIt++ % colors.length];
+        var klass = classes[classIt++ % classes.length];
         $el = $('<div>')
           .css({
-            background: color[0],
             width: (100 / nbPerRow) + '%',
-            height: (70 / (Math.ceil(hacks.length / nbPerRow))) + '%'
+            height: (80 / (Math.ceil(hacks.length / nbPerRow))) + '%'
           })
-            .addClass(color[1] ? 'dark' : 'light')
+            .addClass(klass)
           .append(
             $('<div class="inner">')
               .append($('<span class="text"></span>').text(text))
